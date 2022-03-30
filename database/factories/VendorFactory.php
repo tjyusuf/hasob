@@ -14,7 +14,8 @@ class VendorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'category' => $this->faker->word(),
         ];
     }
 }

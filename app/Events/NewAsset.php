@@ -10,22 +10,22 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-use App\Models\User;
+use App\Models\Asset;
 
-class NewUser
+class NewAsset
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $user;
+ 
+    public $asset;
 
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(Asset $asset)
     {
-        $this->user = $user;
+        $this->asset = $asset;
     }
 
     /**

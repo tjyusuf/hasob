@@ -10,24 +10,23 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-use App\Models\User;
+use App\Models\Assignment;
 
-class NewUser
+class NewAssignment
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $user;
+ 
+    public $assignment;
 
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(Assignment $assignment)
     {
-        $this->user = $user;
+        $this->assignment = $assignment;
     }
-
     /**
      * Get the channels the event should broadcast on.
      *

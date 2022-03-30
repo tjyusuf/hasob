@@ -29,8 +29,9 @@ class WelcomeNewUser extends Mailable
     public function build()
     {
         return $this
-                ->from('Hasob')
                 ->subject('Welcome on board')
-                ->view('emails.welcome_user');
+                ->from('mail@hasob.com')
+                ->to('new@user.com')
+                ->markdown('emails.welcome_user');
     }
 }

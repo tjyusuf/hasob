@@ -4,6 +4,9 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use App\Models\User;
+use App\Models\Asset;
+
 class AssignmentFactory extends Factory
 {
     /**
@@ -13,8 +16,12 @@ class AssignmentFactory extends Factory
      */
     public function definition()
     {
+        $user = User::factory()->create();
+        $asset = Asset::factory()->create();
         return [
-            //
+            'assignment_date' => $this->faker->date(),
+            'assigned_by' => $user->id,
+            'asset_id' => $asset->id
         ];
     }
 }

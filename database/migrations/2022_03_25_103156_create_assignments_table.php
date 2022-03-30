@@ -18,12 +18,15 @@ class CreateAssignmentsTable extends Migration
             $table->date('assignment_date');
             $table->boolean('status')->default(true);
             $table->boolean('is_due')->default(false);
-            $table->unsignedBigInteger('assigned_user_id');
+            $table->unsignedBigInteger('assigned_user_id')->nullable()->default(null);
             $table->unsignedBigInteger('assigned_by');
+            $table->unsignedBigInteger('asset_id');
             $table->timestamps();
 
             $table->foreign('assigned_user_id')->references('id')->on('users');    
-            $table->foreign('assigned_by')->references('id')->on('users');        });
+            $table->foreign('assigned_by')->references('id')->on('users');        
+            $table->foreign('asset_id')->references('id')->on('assets');        
+        });
     }
 
     /**

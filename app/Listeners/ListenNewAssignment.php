@@ -2,14 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\NewUser;
+use App\Events\NewAssignment;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeNewUser as WelcomeUser;
-
-class WelcomeNewUser
+class ListenNewAssignment
 {
     /**
      * Create the event listener.
@@ -24,12 +21,11 @@ class WelcomeNewUser
     /**
      * Handle the event.
      *
-     * @param  \App\Events\NewUser  $event
+     * @param  \App\Events\NewAssignment  $event
      * @return void
      */
-    public function handle(NewUser $event)
+    public function handle(NewAssignment $event)
     {
-        Mail::send(new WelcomeUser());
-        info('Welcome message. New user '.$event->user->id);
+        info('New Assignment '.$event->assignment->id);
     }
 }

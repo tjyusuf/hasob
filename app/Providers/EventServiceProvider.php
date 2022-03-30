@@ -8,7 +8,14 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 
 use App\Events\NewUser;
+use App\Events\NewAsset;
+use App\Events\NewVendor;
+use App\Events\NewAssignment;
+
 use App\Listeners\WelcomeNewUser;
+use App\Listeners\ListenNewAsset;
+use App\Listeners\ListenNewVendor;
+use App\Listeners\ListenNewAssignment;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -23,6 +30,15 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewUser::class => [
             WelcomeNewUser::class,
+        ],
+        NewAsset::class => [
+            ListenNewAsset::class,
+        ],
+        NewVendor::class => [
+            ListenNewVendor::class,
+        ],
+        NewAssignment::class => [
+            ListenNewAssignment::class,
         ],
     ];
 
